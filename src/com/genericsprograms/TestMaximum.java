@@ -25,12 +25,11 @@ public class TestMaximum {
 		return maximum;
 	}
 
-	/**
-	 * declaring the main method printing the maximum value of Integer printing the
-	 * maximum value of Float printing the maximum value of String
+	/*
+	 * Calling the findMaximum method in the main method
 	 */
 	public static void main(String[] args) {
-		
+
 		Integer num1 = 86, num2 = 99, num3 = 101;
 		System.out.println("Maximum value of three Integer Variables :" + findMaximum(num1, num2, num3));
 		Float f1 = 56.35f, f2 = 102.55f, f3 = 45.96f;
