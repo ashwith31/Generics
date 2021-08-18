@@ -7,78 +7,35 @@ import java.util.Scanner;
  * @author Ashwith
  */
 public class TestMaximum {
-	// creating a scanner object to get the input from user
-	static Scanner sc = new Scanner(System.in);
-
 	/*
-	 * This method finds the maximum of three Integer objects. There is no return
-	 * type or parameters passed.
+	 * This method uses the concept of Generics and finds the maximum of three of
+	 * them.
+	 * 
+	 * @param first,second and third of any data type.
+	 * 
+	 * @return returns the maximum object.
 	 */
-	public static void findMaxInt() {
-		// Initializing objects.
-		Integer x, y, z;
-		System.out.println("Enter three Integers");
-		x = sc.nextInt();
-		y = sc.nextInt();
-		z = sc.nextInt();
-		// assuming x to be the maximum object.
-		Integer max = x;
-		if (max.compareTo(y) < 0) {
-			max = y;
-		}
-		if (max.compareTo(z) < 0) {
-			max = z;
-		}
-		System.out.println(max);
+	public static <Z extends Comparable<Z>> Z findMaximum(Z first, Z second, Z third) {
+		// assuming first to be maximum
+		Z maximum = first;
+		if (second.compareTo(maximum) > 0)
+			maximum = second;
+		if (third.compareTo(maximum) > 0)
+			maximum = third;
+		return maximum;
 	}
 
-	/*
-	 * This method finds the maximum of three Float objects. There is no return type
-	 * or parameters passed.
+	/**
+	 * declaring the main method printing the maximum value of Integer printing the
+	 * maximum value of Float printing the maximum value of String
 	 */
-	public static void findMaxFloat() {
-		// Initializing objects.
-		Float x, y, z;
-		System.out.println("Enter three Float values:");
-		x = sc.nextFloat();
-		y = sc.nextFloat();
-		z = sc.nextFloat();
-		// assuming x to be the maximum object.
-		Float max = x;
-		if (max.compareTo(y) < 0) {
-			max = y;
-		}
-		if (max.compareTo(z) < 0) {
-			max = z;
-		}
-		System.out.println(max);
-	}
-	/*
-	 * This method finds the maximum of three Float objects. There is no return type
-	 * or parameters passed.
-	 */
-	public static void findMaxString() {
-		// Initializing objects.
-		String x, y, z;
-		System.out.println("Enter three Strings:");
-		x = sc.next();
-		y = sc.next();
-		z = sc.next();
-		// assuming x to be the maximum object.
-		String max = x;
-		if (max.compareTo(y) < 0) {
-			max = y;
-		}
-		if (max.compareTo(z) < 0) {
-			max = z;
-		}
-		System.out.println(max);
-	}
 	public static void main(String[] args) {
-
-		findMaxInt();
-		findMaxFloat();
-		findMaxString();
-
+		
+		Integer num1 = 86, num2 = 99, num3 = 101;
+		System.out.println("Maximum value of three Integer Variables :" + findMaximum(num1, num2, num3));
+		Float f1 = 56.35f, f2 = 102.55f, f3 = 45.96f;
+		System.out.println("Maximum value of three Float Variables :" + findMaximum(f1, f2, f3));
+		String name1 = "Apple", name2 = "Peach", name3 = "Banana";
+		System.out.println("Maximum value of three String Variables :" + findMaximum(name1, name2, name3));
 	}
 }
