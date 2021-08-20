@@ -13,7 +13,6 @@ public class TestMaximum<Z extends Comparable<Z>> {
 
 	public TestMaximum(Z[] elements) {
 		this.elements = elements;
-		// calling the static method inside constructor
 		testMaximum(elements);
 	}
 
@@ -29,18 +28,25 @@ public class TestMaximum<Z extends Comparable<Z>> {
 		 * Calling the sort method from Arrays class.
 		 */
 		Arrays.sort(elements);
-		
-		System.out.println(elements[elements.length - 1] + " is the maximum");
+		printMax(elements[elements.length - 1]); // calling the printMax method to display output to console
+	}
 
+	/*
+	 * A simple generic method that prints object and a message.
+	 * 
+	 * @param object
+	 */
+	public static <Z> void printMax(Z max) {
+		System.out.println(max + " is the largest element");
 	}
 
 	public static void main(String[] args) {
 
 		Integer[] intelements = { 11, 16, 45, 89, 56 };
 		new TestMaximum(intelements);
-		Float[] floatelements = {11.22f,14.56f,85.9f,111.23f,45.98f};
+		Float[] floatelements = { 11.22f, 14.56f, 85.9f, 111.23f, 45.98f };
 		new TestMaximum(floatelements);
-		String[] values= {"Apple","Peach","Banana","Mango","Strawberry"};
+		String[] values = { "Apple", "Peach", "Banana", "Mango", "Strawberry" };
 		new TestMaximum(values);
 	}
 }
