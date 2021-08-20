@@ -1,5 +1,6 @@
 package com.genericsprograms;
 
+import java.util.Arrays;
 import java.util.Scanner;
 
 /*
@@ -7,40 +8,39 @@ import java.util.Scanner;
  * @author Ashwith
  */
 public class TestMaximum<Z extends Comparable<Z>> {
+	// initializing array
+	Z[] elements;
 
-	Z first, second, third;
-
-	public TestMaximum(Z first, Z second, Z third) {
-		this.first = first;
-		this.second = second;
-		this.third = third;
+	public TestMaximum(Z[] elements) {
+		this.elements = elements;
 		// calling the static method inside constructor
-		testMaximum(first, second, third);
+		testMaximum(elements);
 	}
 
 	/*
 	 * This method uses the concept of Generics and finds the maximum of three of
 	 * them.
 	 * 
-	 * @param first,second and third of any data type.
+	 * @param array of objects
 	 * 
-	 * @return returns the maximum object.
 	 */
-	public static <Z extends Comparable<Z>> void testMaximum(Z first, Z second, Z third) {
-		// assuming first to be maximum
-		Z maximum = first;
-		if (second.compareTo(maximum) > 0)
-			maximum = second;
-		if (third.compareTo(maximum) > 0)
-			maximum = third;
-		System.out.println(maximum);
+	public static <Z extends Comparable<Z>> void testMaximum(Z[] elements) {
+		/*
+		 * Calling the sort method from Arrays class.
+		 */
+		Arrays.sort(elements);
+		
+		System.out.println(elements[elements.length - 1] + " is the maximum");
 
 	}
 
 	public static void main(String[] args) {
 
-		new TestMaximum(11, 28, 35);
-		new TestMaximum("Apple", " Peach", "Banana");
-		new TestMaximum(1.3, 11.3, 111.3);
+		Integer[] intelements = { 11, 16, 45, 89, 56 };
+		new TestMaximum(intelements);
+		Float[] floatelements = {11.22f,14.56f,85.9f,111.23f,45.98f};
+		new TestMaximum(floatelements);
+		String[] values= {"Apple","Peach","Banana","Mango","Strawberry"};
+		new TestMaximum(values);
 	}
 }
